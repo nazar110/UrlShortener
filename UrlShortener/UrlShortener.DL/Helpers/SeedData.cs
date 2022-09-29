@@ -17,6 +17,7 @@ namespace UrlShortener.DL.Helpers
                 Password = "qwerty1",
                 IsAdmin = true
             });
+            context.SaveChanges();
         }
     }
 }
