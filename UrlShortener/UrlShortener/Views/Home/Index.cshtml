@@ -3,6 +3,16 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Login</h1>
+    <form asp-action="Login" method="get">
+        <label>Login: </label>
+        <input name="login" />
+        <br />
+        <label>Password: </label>
+        <input name="password" />
+        <br />
+        <button type="submit" class="btn btn-outline-dark">
+            Submit
+        </button>
+    </form>
 </div>

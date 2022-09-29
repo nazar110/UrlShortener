@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using UrlShortener.BL.Services;
 using UrlShortener.Models;
 
 namespace UrlShortener.Controllers
@@ -7,14 +8,25 @@ namespace UrlShortener.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUserService userService)
         {
             _logger = logger;
+            _userService = userService;
         }
 
         public IActionResult Index()
         {
+            return View();
+        }
+        public IActionResult Login(string login, string password)
+        {
+            var user = _userService.Get(login, password);
+            if (user != null)
+            {
+                View();
+            }
             return View();
         }
 

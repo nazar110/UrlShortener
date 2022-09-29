@@ -12,8 +12,8 @@ namespace UrlShortener.BL.Services
         // string GetFullBy(string shortenUrl);
         UrlInfoDto GetBy(string shortenUrl);
         List<UrlInfoDto> GetAll();
-        UrlInfoDto Add(string fullUrl);
-        UrlInfoDto Remove(string shortenUrl, string userName);
+        UrlInfoDto Add(string fullUrl, string login);
+        UrlInfoDto Remove(string shortenUrl, string login, string password);
         UrlInfoDto Update(UrlInfoDto urlToUpdate);
 
     }

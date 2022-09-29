@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using UrlShortener.BL.Services;
 using UrlShortener.DL.Entities;
+using UrlShortener.DL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<UrlShortenerContext>
     (x => x.UseSqlServer(builder.Configuration.GetConnectionString("MainDatabase")));
+
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IUrlService, UrlService>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IUrlRepository, UrlRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 

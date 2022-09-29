@@ -29,7 +29,6 @@ namespace UrlShortener.BL.Services
         public UserDto Get(string login, string password)
         {
             var user = _mapper.Map<UserDto>(_userRepository.Get(login, password));
-            _userRepository.Save();
             return user;
         }
 
