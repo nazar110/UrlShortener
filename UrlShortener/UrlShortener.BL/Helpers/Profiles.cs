@@ -11,6 +11,8 @@ namespace UrlShortener.BL.Helpers
         {
             CreateMap<UrlInfo, UrlInfoDto>(); // for get
             CreateMap<UrlInfoDto, UrlInfo>(); // for create and update
+            CreateMap<User, UserDto>(); // for get
+            CreateMap<UserDto, User>(); // for create and update
         }
     }
 }
